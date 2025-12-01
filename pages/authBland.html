@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savorly Login/Signup</title>
+    <link rel="stylesheet" href="/css/materialize.min.css" />
+    
+    
+            
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sign In Form -->
+        <div id="sign-in-form" class="row">
+            <h4>Sign In</h4>
+            <div class="input-field col s12">
+                <input type="email" class="validate" id="sign-in-email">
+                <label for="sign-in-email"></label>
+            </div>
+             <div class="input-field col s12">
+                <input type="password" class="validate" id="sign-in-password">
+                <label for="sign-in-password"></label>
+            </div>
+
+            <button id="sign-in-btn" class="btn waves-effect waves-light">Sign In</button>
+            
+            <p>Don't have a account? <a href="#" id="show-signup">Sign Up</a></p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="sign-up-form" class="row" style="display: none">
+            <h4>Sign Up</h4>
+            <div class="input-field col s12">
+                <input type="email" class="validate" id="sign-up-email">
+                <label for="sign-up-email"></label>
+            </div>
+             <div class="input-field col s12">
+                <input type="password" class="validate" id="sign-up-password">
+                <label for="sign-up-password"></label>
+            </div>
+
+            <button id="sign-up-btn" class="btn waves-effect waves-light">Sign Up</button>
+            
+            <p>Already have a account? <a href="#" id="show-signin">Sign In</a></p>
+        </div>
+
+    </div>
+
+    <script type="module" src="/js/signin.js"></script>
+    <script src="/js/materialize.min.js"></script>
+</body>
+</html>

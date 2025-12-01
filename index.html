@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- Jesse Newberry
+November 7, 2025 -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savorly Recipe Manager</title>
+    <link rel="stylesheet" href="/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/savorly-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/savorly-32.png">
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
+    <!-- having issues with the manifest on infinity free hosting. Moving to pull from github. A messy solution but it should work-->
+    <link rel="manifest" href="https://achio-n.github.io/savorly-manifest/site.webmanifest">
+
+    <meta name="theme-color" content="#2e7d32">
+    
+    <style>
+      .sync-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        padding: .3rem .6rem;
+        border-radius: 9999px;
+        background: #eef3ff;
+        font-size: .9rem;
+      }
+      .sync-chip.offline {
+        background: #ffecec;
+      }
+      .sync-chip i { font-size: 18px; line-height: 18px; }
+     body {
+      background-image: url('/img/food.png'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center center; 
+      background-attachment: fixed; 
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5); 
+      z-index: -1;
+    }
+    .card-panel{
+     
+                border-radius: 15px;            
+    }
+</style>
+
+  </head>
+  <body class="grey lighten-4">
+    <header>
+      <!-- Nav Bar for Bigger Screens -->
+      <nav class="z-depth-0 green lighten-1">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo orange-text text-darken-2" aria-label="Task Manager Home"><img src="/img/icons/logoSmall.png" alt="Savorly logo" width="70" height="70" class="circle"></a>
+          
+          <!-- Hamburger menu for medium and small screens -->
+          <a href="#"
+             class="sidenav-trigger right hide-on-med-and-up black-text"
+             data-target="mobile-menu"
+             aria-label="Open menu"
+             aria-controls="mobile-menu">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <!-- Navbar links for large screens -->
+          <ul class="right hide-on-small-and-down">
+            <li><a href="/" class="waves-effect white-text">Home</a></li>
+            <li><a href="/pages/about.html" class="waves-effect white-text">About</a></li>
+            <li><a href="/pages/contact.html" class="waves-effect white-text">Contact</a></li>
+           <li><a href="#" id="log-out-btn-desktop" class="waves-effect white-text" style="display: none">Log Out</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <aside>
+      <ul class="sidenav" id="mobile-menu" aria-label="Mobile navigation">
+        <li><a class="subheader">Savorly Recipes</a></li>
+        <li><a href="/" class="waves-effect grey-text text-darken-4">Home</a></li>
+        <li><a href="/pages/about.html" class="waves-effect grey-text text-darken-4">About</a></li>
+        <li><a href="/pages/contact.html" class="waves-effect grey-text text-darken-4" aria-label="Contact">
+            <i class="material-icons" aria-hidden="true">mail_outline</i>Contact</a></li>      
+        <li> <a id="log-out-btn-mobile" class="waves-effect grey-text" style="display: none">Log Out</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <div class="container center">
+                <h3 class="white-text">Savorly Recipe Manager</h3>
+                
+            </div>
+      <!-- Tasks -->
+      <div id="tasks" class="tasks container grey-text text-darken-4">
+       
+        <div class="card-panel white row valign-wrapper" data-id="example">
+          <div class="col s2">
+            <img src="/img/recipe.png" class=" responsive-img" alt="task icon" />
+          </div>
+          <div class="task-details col s8">
+            <h5 class="task-title black-text"></h5>
+            <div class="task-description">
+             
+            </div>
+          </div>
+          <div class="col s2 right-align">
+            <button class="task-delete btn-flat" aria-label="Delete Task">
+              <i class="material-icons black-text text-darken-1" aria-hidden="true">delete_outline</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="center">
+        <button class="btn-floating btn-large green text-darken-2 sidenav-trigger pulse" title="Click here to add a recipe"
+                data-target="side-form"
+                aria-label="Add a task"
+                aria-controls="side-form">
+          <i class="material-icons" aria-hidden="true">add</i>
+        </button>
+      </div>
+
+      <div class="sidenav side-form" id="side-form" aria-label="Add task form">
+        <form class="add-task container section" novalidate>
+          <h6>Add New Task</h6>
+          <div class="divider"></div>
+
+          <div class="input-field">
+            <input type="text" placeholder="Enter Task Title" id="title" class="validate" aria-required="true" />
+            <label for="title" class="black-text">Task Title</label>
+          </div>
+
+          <div class="input-field">
+            <input type="text" placeholder="Enter Task Description" id="description" class="validate" />
+            <label for="description" class="black-text">Task Description</label>
+          </div>
+          <input type="hidden" id="task_id">
+
+          <div class="input-field center">
+            <button type="button" class="btn-small green darken-2">Add</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sync target indicator -->
+      <div id="sync-indicator" class="sync-chip" title="Where new/edited tasks will be saved">
+        <i class="material-icons left" aria-hidden="true">cloud_done</i>
+        Online: saving to Firebase
+      </div>
+
+
+
+
+    </main>
+
+    <script src="/js/materialize.min.js"></script>
+   <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/ui.js"></script>
+    
+
+    <!-- Removed: <script type="module" src="js/firebaseDB.js"></script> (ui.js imports it) -->
+  </body>
+</html>

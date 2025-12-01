@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- Jesse Newberry
+November 7, 2025 -->
+<html lang="en">
+    <head>
+          <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Savorly</title>
+        <link rel="stylesheet" href="../css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Give icons based on device -->
+        <link rel="icon" type="image/x-icon" href="../img/icons/favicon.ico">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/icons/savorly-16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/icons/savorly-32.png">
+        <link rel="apple-touch-icon" href="../img/icons/apple-touch-icon.png">
+        <!-- <link rel="manifest" href="../site.webmanifest"> -->
+        <!-- having issues with the manifest on infinity free hosting. Moving to pull from github. A messy solution but it should work-->
+        <link rel="manifest" href="https://achio-n.github.io/savorly-manifest/site.webmanifest">
+        <meta name="theme-color" content="#2e7d32">
+         <style>
+            body {
+                background-image: url('../img/food.png'); 
+                background-size: cover; 
+                background-repeat: no-repeat; 
+                background-position: center center; 
+                background-attachment: fixed; 
+            }
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.5); /* White overlay, 50% transparent */
+                z-index: -1;
+            }
+            .card{
+                border-radius: 15px;
+            }
+        </style>
+    </head>
+    <body class="grey lighten-4">
+<header>
+            <!-- Nav Bar for Bigger Screens -->
+            <nav class="z-depth-0 green lighten-1">
+            <div class="nav-wrapper container">
+                <a href="../index.html" class="brand-logo white-text valign-wrapper" aria-label="Savorly Home">
+                <img src="../img/icons/logoSmall.png" alt="Savorly logo" width="70" height="70" class="circle">
+                <span class="hide-on-small-only" style="margin-left:8px"></span> <!-- optional small spacer -->
+                
+                </a>
+
+                <a href="#" class="sidenav-trigger right hide-on-med-and-up black-text" data-target="mobile-menu">
+                <i class="material-icons">menu</i>
+                </a>
+
+                <ul class="right hide-on-small-and-down">
+                <li><a href="../index.html" class="waves-effect white-text">Home</a></li>
+                <li><a href="about.html" class="waves-effect white-text">About</a></li>
+                <li><a href="contact.html" class="waves-effect white-text">Contact</a></li>
+                <li><a id="log-out-btn-desktop" class="waves-effect white-text" style="display: none">Log Out</a></li>
+                </ul>
+            </div>
+
+            <!-- Filter row under the navbar -->
+           
+            </nav>
+        </header>
+          
+        <aside>
+            <ul class="sidenav" id="mobile-menu">
+                <li><a class="subheader">Savorly Recipe</a></li>
+                <li><a href="../index.html" class="waves-effect grey-text text-darken-4">Home</a></li>
+                <li><a href="about.html" class="waves-effect grey-text text-darken-4">About</a></li>
+                <li><a href="contact.html" class="waves-effect grey-text text-darken-4"><i class="material-icons">mail_outline</i>Contact</a></li>
+                <li><a id="log-out-btn-mobile" class="waves-effect grey-text text-darken-4" style="display: none">Log Out</a></li>
+            </ul>
+        </aside>
+ <div class="container white-text">
+            <h3 class="center">Contact Savorly Recipes</h3>
+            <h4 class="center black-text">(Functionality coming soon in 2026)</h4>
+        </div>
+
+        <div class="container section">
+        <div class="row">
+            <div class="col s12 m10 l8 offset-m1 offset-l2">
+            <div class="card">
+                <div class="card-content">
+                <span class="card-title">Contact Us</span>
+
+                <form id="contact-form">
+                    <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">person</i>
+                        <input id="name" type="text" class="validate" required aria-label="Your name">
+                        <label for="name">Your Name</label>
+                        <span class="helper-text" data-error="Please enter your name"></span>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" required aria-label="Your email">
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="Valid email required"></span>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">subject</i>
+                        <input id="subject" type="text" class="validate" required aria-label="Subject" data-length="80">
+                        <label for="subject">Subject</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">message</i>
+                        <textarea id="message" class="materialize-textarea validate" required aria-label="Message" data-length="500"></textarea>
+                        <label for="message">Message</label>
+                        <span class="helper-text" data-error="Please write a message"></span>
+                    </div>
+                    </div>
+
+                    <div class="right-align">
+                    <button class="btn green waves-effect" type="submit">
+                        Send
+                        <i class="material-icons right">send</i>
+                    </button>
+                    </div>
+                </form>
+
+                </div>
+      </div>
+
+      <!-- Optional alternate contact -->
+      <p class="center grey-text">
+        Prefer email?
+        <a href="mailto:contact@savorly.com">contact@savorly.com</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+        <div class="container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.1478255511897!2d-0.1955455231217377!3d51.49215471181668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f8b6f66dbd5%3A0x31dfa982d9823a3b!2sEarl%E2%80%99s%20Court%20Police%20Box!5e0!3m2!1sen!2sus!4v1759152938317!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+       <script src="../js/materialize.min.js"></script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            M.Sidenav.init(document.querySelectorAll('.sidenav'));
+            M.Collapsible.init(document.querySelectorAll('.collapsible'), {
+              accordion: true 
+    });
+  });
+</script>
+        <footer class="page-footer green">
+                <div class="container">
+                    <div class="row">
+                    <div class="">
+                        <ul>
+                        <li><a class="grey-text text-lighten-3" href="../index.html">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="about.html">About</a></li>
+                        <li><a class="grey-text text-lighten-3" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                    © 2025 Savorly LLC
+                    </div>
+                </div>
+            </footer>
+             
+            <!-- Only allow users to view page if logged in -->
+            <script type="module" src="/js/auth.js"></script>
+           </body>
+</html>

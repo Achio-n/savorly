@@ -1,0 +1,40 @@
+{
+  "name": "Savorly — Recipe Saver",
+  "short_name": "Savorly",
+  "description": "Save and manage your favorite recipes using a clean Materialize CSS interface.",
+  "id": "/?app=savorly",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "categories": ["food", "productivity"],
+   "icons": [
+    {
+      "src": "/img/icons/savorly-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/savorly-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/savorly-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/icons/savorly-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "About", "short_name": "About", "url": "/pages/about.html" },
+    { "name": "Contact", "short_name": "Contact", "url": "/pages/contact.html" }
+  ]
+}
